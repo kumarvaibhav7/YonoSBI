@@ -1,0 +1,152 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" [routerLink]="['']">
+        <img style="margin-left: 50px;" width="160" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
+    </a>
+</nav>
+<div style="overflow-x: hidden;">
+    <div class="card" style="width:95%; margin: 10px auto;">
+        <div class="card-header text-xl-center">
+            User Driven Registration: New User
+        </div>
+        <form [formGroup]="accountform">
+            <div style="padding: 10px; margin-bottom: 50px;">
+                <div style="padding: 10px;">
+                    <p style="margin-left: 20px;">Account Details:</p>
+                    <hr>
+                    <table>
+                        <tr>
+                            <td style="padding: 20px;"><label for="atype">Account Type:</label></td>
+                            <td style="padding-left: 10px;"><select style=" width: 300px;" class="form-select"
+                                    formControlName="atype" required>
+                                    <option value="Current">Current Account</option>
+                                    <option value="Savings">Savings Account</option>
+                                </select></td>
+                            <td style="padding: 20px 0 20px 200px;"><label for="branch">Branch:</label></td>
+                            <td style="padding-left: 40px;"><select style=" width: 300px;" class="form-select"
+                                    formControlName="branch" required>
+                                    <option *ngFor="let branch of branches" value="{{branch.bid}}">{{branch.bname}}
+                                    </option>
+                                </select></td>
+                        </tr>
+                    </table>
+                    <hr>
+                </div>
+
+                <div formGroupName="customerform">
+                    <p style="margin-left: 20px;">Basic Details:</p>
+                    <hr>
+                    <table>
+                        <tr>
+                            <td style="padding: 20px;"><label for="fname">First Name:</label></td>
+                            <td style="padding-left: 10px;"><input class="form-control" style=" width: 300px;"
+                                    type="text" formControlName="fname" required></td>
+                            <td style="padding: 20px 0 20px 200px;"><label for="lname">Last Name:</label></td>
+                            <td style="padding-left: 10px;"><input class="form-control" style=" width: 300px;"
+                                    type="text" formControlName="lname" required></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px;"><label for="mobileno">Mobile:</label></td>
+                            <td style="padding-left: 10px;"><input class="form-control" style=" width: 300px;"
+                                    type="text" formControlName="mobileno" required="true">
+                                <div class="text-danger"
+                                    *ngIf="accountform.get('customerform').get('mobileno')?.invalid">Mobile Number is
+                                    invalid.</div>
+                            </td>
+                            <td style="padding: 20px 0 20px 200px;"><label for="aadhaar">Aadhaar No:</label></td>
+                            <td style="padding-left: 10px;"><input class="form-control" style=" width: 300px;"
+                                    type="text" formControlName="aadhaar" required>
+                                <div class="text-danger"
+                                    *ngIf="accountform.get('customerform').get('aadhaar')?.invalid">Aadhaar Number is
+                                    invalid.</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px;"><label for="dateofbirth">Date of Birth:</label></td>
+                            <td style="padding-left: 10px;"><input class="form-control" style=" width: 300px;"
+                                    type="date" formControlName="dateofbirth" required></td>
+                            <td style="padding: 20px 0 20px 200px;"><label for="mstatus">Marital Status:</label></td>
+                            <td style="padding-left: 10px;"><select style=" width: 300px;" class="form-select"
+                                    formControlName="mstatus" required>
+                                    <option value="Married">Married</option>
+                                    <option value="Single">Single</option>
+                                </select></td>
+                        </tr>
+                    </table>
+                    <hr>
+                    <div style="padding: 10px;">
+                        <p style="margin-left: 20px;">Address Details:</p>
+                        <hr>
+                        <table>
+                            <tr>
+                                <td style="padding: 20px;"><label for="houseno">House No:</label></td>
+                                <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
+                                        type="text" formControlName="houseno" required></td>
+                                <td style="padding: 20px 0 20px 200px;"><label for="locality">Locality:</label></td>
+                                <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
+                                        type="text" formControlName="locality" required></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 20px;"><label for="city">City:</label></td>
+                                <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
+                                        type="text" formControlName="city" required></td>
+                                <td style="padding: 20px 0 20px 200px;"><label for="state">State:</label></td>
+                                <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
+                                        type="text" formControlName="state" required></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 20px;"><label for="country">Country:</label></td>
+                                <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
+                                        type="text" formControlName="country" required></td>
+                                <td style="padding: 20px 0 20px 200px;"><label for="pincode">Pincode</label></td>
+                                <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
+                                        type="number" formControlName="pincode" required>
+                                    <div class="text-danger"
+                                        *ngIf="accountform.get('customerform').get('pincode')?.invalid"> Pincode is
+                                        invalid.</div>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div style="position: relative; left:35%">
+                        <input style="margin: 50px; padding: 10px 100px;" [disabled]="accountform.invalid"
+                            (click)="adduser(signup,duplicate)" type="submit">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<ng-template #signup let-modal>
+    <div class="modal-header">
+        <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">New Account Added</h4>
+    </div>
+    <div class="modal-body text-center">
+        <img height="300px" width="400px"
+            src="https://cdn.dribbble.com/users/2726709/screenshots/6522118/untitled-1.gif"
+            alt="Account Created Successfully.">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')"
+            (click)="backtosignin()">Close</button>
+    </div>
+</ng-template>
+
+<ng-template #duplicate let-modal>
+    <div class="modal-header">
+        <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">User Already Exist</h4>
+    </div>
+    <div class="modal-body text-center">
+        <!-- <img height="300px" width="400px" src="https://cdn.dribbble.com/users/2726709/screenshots/6522118/untitled-1.gif" alt="Account Created Successfully."> -->
+        <p>User already exist.....</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-success" (click)="modal.close('Close click')">Retry</button>
+        <button type="button" class="btn btn-outline-danger" (click)="modal.close('Close click')"
+            (click)="backtosignin()">Go to Signin</button>
+    </div>
+</ng-template>

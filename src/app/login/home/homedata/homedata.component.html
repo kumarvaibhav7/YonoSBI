@@ -1,0 +1,84 @@
+<html>
+<div>
+
+</div>
+<div class="card" style="margin: 0% 5%; position: absolute; top: 12%; width: 45%; height: 150px;">
+    <div class="card-body">
+        <table style="font-size: large;">
+            <tr>
+                <td style="font-weight: 600 ;">Account Number:</td>
+                <td>{{adata.acnumber}}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: 600 ;">Account Type:</td>
+                <td>{{adata.atype}}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: 600 ;">Account Holder Name:</td>
+                <td>{{adata.customer.fname}} {{adata.customer.lname}}</td>
+            </tr>
+        </table>
+
+
+        <!-- <div>Accout Type: </div>
+            <div>Accout Number: </div>
+            <div>Accout Holder Name: </div> -->
+    </div>
+</div>
+<div style="padding-top:50px">
+<div class="card" style="position: relative; margin-top: 0%; width: 40%; left: 55%; ">
+    <div class="card-body">
+        <table class="text-xl-center" style="line-height: 1.5; font-size: larger; margin: 10px auto;">
+            <tr>
+                <td>Available Balance:</td>
+            </tr>
+            <tr>
+                <td style="font-size: larger; padding: 10px" *ngIf="isbalhidden">*************</td>
+                <td style="font-size: larger; padding: 10px" *ngIf="!isbalhidden">{{adata.balance|currency:"INR"}}</td>
+            </tr>
+            <tr>
+                <div class="btn btn-primary" *ngIf="isbalhidden" (click)="showbalance()">Show Balance</div>
+                <div class="btn btn-primary" *ngIf="!isbalhidden" (click)="showbalance()">Hide Balance</div>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+<div style="position: relative; margin-top:5%">
+    <table style="margin: 0 17%;">
+        <tr>
+            <td>
+                <a class="card qlinks" [routerLink]="['/'+route.snapshot.pathFromRoot[1].url[0].path+'/home/deposit']">
+                    <div style="margin: auto; padding:30px 0; font-size: larger; letter-spacing: 4px;"
+                        class="card-body text-black">
+                        Deposit
+                    </div>
+                </a>
+            </td>
+            <td style="padding-left: 10%;">
+                <a class="card qlinks"
+                    [routerLink]="['/'+route.snapshot.pathFromRoot[1].url[0].path+'/home/statement']">
+                    <div style="margin: auto; padding:30px 0; font-size: larger; letter-spacing: 4px;"
+                        class="card-body text-black">
+                        Statement
+                    </div>
+                </a>
+            </td>
+            <td style="padding-left: 20%;">
+                <a class="card qlinks" [routerLink]="['/'+route.snapshot.pathFromRoot[1].url[0].path+'/home/request']">
+                    <div style="margin: auto; padding:30px 0; font-size: larger; letter-spacing: 4px;"
+                        class="card-body text-black">
+                        Request
+                    </div>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- <small>Copyright &copy; Brillio</small> -->
+<footer style="margin-top: 2.5%;" class="footer py-3 bg-light">
+    <small>Copyright &copy; Brillio</small>
+</footer>
+
+</html>

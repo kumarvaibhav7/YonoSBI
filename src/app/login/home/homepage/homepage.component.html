@@ -1,0 +1,55 @@
+<nav class="navbar navbar-light bg-light">
+  <button style="margin-left: 10px;" class="btn btn-lg btn-light" data-bs-toggle="offcanvas" data-bs-target="#sidebar"><i class="fa-solid fa-bars"></i></button>
+  <a class="navbar-brand" [routerLink]="['homedata']">
+      <img style="margin-left: 50px;" width="150" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
+  </a>
+  <div style="margin-left: 50%;">Welcome {{user}}</div>
+  <button class="btn btn-medium btn-light" [routerLink]="['profile']"><i class="fa-solid fa-user"></i></button>
+  <button class="btn btn-medium btn-light" (click)="canlogout(logout)"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+</nav>
+<div class="offcanvas offcanvas-start" id="sidebar">
+  <div class="offcanvas-header">
+    <h1 style="margin: auto; letter-spacing: 3px;" class="offcanvas-title">Quick Links</h1>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- <button [routerLink]="['homedata']" class="navBtn btn offcan">HomePage</button> -->
+
+    <button class="btnn btnn5" [routerLink]="['homedata']">
+      <h4>HomePage</h4>
+    </button>
+    <button class="btnn btnn5" [routerLink]="['profile']">
+      <h4>Profile</h4>
+    </button>
+    <button class="btnn btnn5" [routerLink]="['deposit']">
+      <h4>Send Money</h4>
+    </button>
+    <button class="btnn btnn5" [routerLink]="['statement']">
+      <h4>Statement</h4>
+    </button>
+    <button class="btnn btnn5" [routerLink]="['request']">
+      <h4>Request</h4>
+    </button>
+
+    <!-- <button [routerLink]="['profile']" class="navBtn btn offcan">Profile</button>
+    <button [routerLink]="['deposit']" class="navBtn btn offcan">Send Money</button>
+    <button [routerLink]="['statement']" class="navBtn btn offcan">Statement</button>
+    <button [routerLink]="['request']" class="navBtn btn offcan">Request</button> -->
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+
+<ng-template class="border-0" #logout let-modal>
+  <div class="modal-header dark-modal">
+    <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">Logout Confirmation</h4>
+  </div>
+  <div class="modal-body text-center dark-modal">
+    <img height="200px" width="300px" src="https://i.gifer.com/HyMX.gif" alt="Payment Processing">
+  </div>
+  <div class="modal-footer dark-modal">
+    <button type="button" class="btn btn-outline-danger" (click)="modal.close('Close click')">No</button>
+    <button type="button" class="btn btn-outline-success" (click)="modal.close('Close click')" (click)="backtosignin()">Yes</button>
+  </div>
+</ng-template>

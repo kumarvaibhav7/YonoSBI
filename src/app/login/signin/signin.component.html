@@ -1,0 +1,60 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand">
+        <img style="margin-left: 50px;" width="160" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
+    </a>
+</nav>
+<ngb-carousel [showNavigationArrows]="false" [showNavigationIndicators]="false" [interval]="5000">
+    <ng-template ngbSlide>
+        <div class="picsum-img-wrapper">
+            <img width="100%" height="70%" src="assets/BG6.svg" alt="Carousel Image">
+        </div>
+    </ng-template>
+</ngb-carousel>
+<div class="card" style="position: absolute; top: 25%; left:66%;">
+    <div class="card-header text-xl">
+        Welcome to<br>
+        <img width="160" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
+    </div>
+    <div class="card-body">
+        <form [formGroup]="loginform">
+            <div style="padding: 10px;">
+                <div style="padding: 10px;">
+                    <input style=" width: 300px;" type="text" formControlName="username" required="true"
+                        placeholder="Username">
+                    <div class="text-danger" *ngIf="loginform.get('username')?.invalid">Username is invalid.</div>
+                </div>
+                <div style="padding: 10px;">
+                    <input style="width: 300px;" type="password" formControlName="password" [required]="true"
+                        placeholder="Password">
+                    <div class="text-danger" *ngIf="loginform.get('password')?.invalid">Password is invalid.</div>
+                </div>
+                <div style="padding: 10px;">
+                    <input style="width:300px" (click)="verify(invalid)" type="submit">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="card-footer">
+        <p style="font-size: 80%;">The Username is (Last Name).(First.Name).</p>
+        <p style="font-size: 80%;">The Password is registered Mobile Number.</p>
+    </div>
+
+</div>
+
+
+<ng-template #invalid let-modal>
+    <div class="modal-header" style="background-color: #272822;
+    color: white;">
+        <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">Invalid Credentials!</h4>
+    </div>
+    <div class="modal-body text-center" style="background-color: #272822;
+    color: white;">
+        <img height="300px" width="400px" src="https://64.media.tumblr.com/147ebc2c40da6805d38712b3a0bb2010/tumblr_oyyopiWL321rn5gv3o1_500.gif" alt="Invalid Credentials">
+    </div>
+    <div class="modal-footer" style="background-color: #272822;
+    color: white;">
+        <button type="button" class="btn btn-outline-success" (click)="modal.close('Close click')">Retry</button>
+        <button type="button" class="btn btn-outline-danger" (click)="modal.close('Close click')"
+            [routerLink]="['createAccount']">Create new Account</button>
+    </div>
+</ng-template>

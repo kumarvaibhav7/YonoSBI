@@ -1,0 +1,102 @@
+<div class="container">
+    <div class="row my-4">
+        <div class="col">
+          <h3 style="font-size: 2.5rem; position: absolute; top: 7rem" class="my-3">Send Money Internally With In Bank</h3>
+        
+      </div>
+      <div class="col">
+        <div class="card" style="width: 27rem; padding: 20px ; margin-left: 100px;">
+            <div class="card-body">
+              <h5 class="card-title">Reference Details</h5>
+              <br>
+              <h6 class="card-subtitle mb-2 text-muted">Account Number : {{adata.acnumber}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Account Name : {{adata.customer.fname}} {{adata.customer.lname}}</h6>
+            </div>
+          </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+          <h4 style="margin-right: 10px ;">From :</h4>
+          <table cellpadding=10 style="margin-left: 30px; margin-top: 30px;">
+            <tr >
+                <td><label>Account Number : </label></td>
+                <td><input type="text" [(ngModel)]="adata.acnumber" disabled></td>
+            </tr>
+            <tr>
+                <td><label>Balance :</label></td>
+                <td><input type="text" [(ngModel)]="adata.balance" disabled></td>
+            </tr>
+            <tr>
+                <td><label>Amount :</label></td>
+                <td><input type="text" [(ngModel)]="deposit"></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td *ngIf="isinvalidamount" class="text-danger">Amount should be less than Balance.</td>
+              <td *ngIf="iszero" class="text-danger">Amount should be greater than 0</td>
+              <td *ngIf="ischar" class="text-danger">Amount should not be a character.</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col">
+          <h4 style="margin-right: 10px ; margin-left: 20px ;">To :</h4>
+          <table cellpadding=10 style="margin-left: 40px; margin-top: 10px;">
+            <tr >
+                <td><label>Account Number : </label></td>
+                <td><input type="text" [disabled]="!isrecieverinvalid" [(ngModel)]="Toacnumber" ></td>
+                <td><button class="btn btn-primary" [disabled]="isaccountsame" (click)="findreciever(account)">Find Account</button></td>
+            </tr>
+            <tr *ngIf="isaccountsame" style="position: absolute;">
+                <td colspan="4" class="text-danger">The Reciever and Sender cannot be same.</td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div *ngIf="!isrecieverinvalid && !isaccountsame" class="card" style="width: 20rem; padding: 10px ;">
+                  <div class="card-body">
+                    <h5 class="card-title">Reciever Details</h5>
+                    <br>
+                    <h6 class="card-subtitle mb-2 text-muted">Account Number : {{rdata.acnumber}}</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Account Name : {{rdata.customer.fname}} {{rdata.customer.lname}}</h6>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <button style="margin-top: 120px;" class="btn btn-primary" [disabled]="isaccountsame || ischar || isinvalidamount || isrecieverinvalid || iszero" (click)="send(transaction)">Send Money</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+</div>
+<div class="verticalLine">
+</div>
+
+
+<ng-template #transaction let-modal>
+  <div class="modal-header">
+    <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">Processing Payment</h4>
+  </div>
+  <div class="modal-body text-center">
+    <img *ngIf="!istransactioncomplete" height="300px" width="400px" src="https://www.aalpha.net/wp-content/uploads/2021/05/integrate-payment-gateway.gif" alt="Payment Processing">
+    <img *ngIf="istransactioncomplete" height="300px" width="400px" src="https://i.pinimg.com/originals/0d/e4/1a/0de41a3c5953fba1755ebd416ec109dd.gif" alt="Payment Complete">
+  </div>
+  <div *ngIf="istransactioncomplete" class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')" [routerLink]="['/'+this.route.snapshot.pathFromRoot[1].url[0].path+'/home/homedata']">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #account let-modal>
+  <div class="modal-header">
+    <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">No Account Found</h4>
+  </div>
+  <div class="modal-body text-center">
+    <img height="300px" width="400px" src="https://c.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" alt="Payment Processing">
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>
+
+

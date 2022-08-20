@@ -1,0 +1,115 @@
+
+<!-- <div class="container">
+    <h3 class="my-3">Transaction Details</h3>
+    <hr>
+    <h5 style="margin-bottom: 10px ;">Choose the number of Transaction To Display</h5>
+      
+</div>
+<br><br>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               (page)="pageEvent = $event"
+               aria-label="Select page">
+            </mat-paginator>
+<div *ngIf="pageEvent" class="container">
+    <div class="row">
+        <div class="col">
+            <h5>From/To</h5>
+        </div>
+        <div class="col">
+            <h5>Transaction Id</h5>
+        </div>
+        <div class="col">
+            <h5>Data Of Transaction</h5>
+        </div>
+        <div class="col" >
+            <h5>Type</h5>
+        </div>
+        <div class="col">
+            <h5>Transacted Amount</h5>
+        </div>
+    </div>
+    <hr>
+    <div *ngFor = "let transation of transactions">
+        <div class="row" style="padding: 20px;">
+            <div class="col">
+                {{transation.from_to}}
+            </div>
+            <div class="col">
+                {{transation.tranid}}
+            </div>
+            <div class="col">
+                {{transation.dateoftran}}
+            </div>
+            <div class="col" >
+                {{transation.medium_of_tran}}
+            </div>
+            <div class="col">
+                {{transation.tran_amount|currency:'INR'}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="pageEvent">
+    <h5>Page Change Event Properties</h5>
+    <div>List length: {{pageEvent.length}}</div>
+    <div>Page size: {{pageEvent.pageSize}}</div>
+    <div>Page index: {{pageEvent.pageIndex}}</div>
+  </div> -->
+
+
+
+
+
+
+
+<div class="container" id="tab">
+
+    <table>
+        <tr>
+            <td>
+                <h3 class="my-3">Transaction Details</h3>
+            </td>
+            <td>
+                <div style="margin-left: 600px;">
+                    Search: <input class="form-control-sm" (keyup)="applyFilter($any($event).target.value)" placeholder="Search Keyword">
+                </div>
+            </td>
+        </tr>
+    </table>
+    <hr>
+    <div class="example-container mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="tranid">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Transaction ID</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.tranid}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="dateoftran">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Date of Transaction</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.dateoftran}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="medium_of_tran">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Transaction Type</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.medium_of_tran}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="from_to">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Sender/Reciever</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.from_to}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="tran_amount">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Amount</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{row.tran_amount}}</mat-cell>
+            </ng-container>
+    
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+    <mat-paginator [length]="100"
+               [pageSize]="6"
+               aria-label="Select page">
+    </mat-paginator>
+</div>

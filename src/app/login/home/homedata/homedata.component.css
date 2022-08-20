@@ -1,0 +1,81 @@
+td {
+    padding: 5px 20px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+a:active {
+    text-decoration: none;
+}
+
+
+
+.qlinks {
+    height: 100px;
+    width: 200px;
+    margin: 10%;
+}
+
+
+
+html {
+
+    height: 100%;
+
+}
+
+
+
+body {
+
+    min-height: 100%;
+
+}
+
+
+
+
+html {
+
+    height: 80%;
+
+    background: linear-gradient(90deg, #a91b49, 40%, #6b0f64) no-repeat;
+
+    position: relative;
+
+}
+
+
+
+
+.btn {
+
+    border: none;
+
+    color: #fff;
+
+    background-color: #a91b49;
+
+    width: 100%;
+
+}
+
+
+
+.card {
+
+    background-color: rgb(231, 216, 216);
+    letter-spacing: 2px;
+
+}
