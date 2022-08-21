@@ -1,0 +1,98 @@
+<html>
+<div class="container my-3">
+    <div class="row">
+        <div class="col">
+            <h2 style="font-size: 2.3rem ;" class="my-4">Application for Credit Card</h2>
+            <h6 class="my-3">Please fill out the form</h6>
+        </div>
+        <div class="col">
+            <img src="../../../../../assets/mastercard.png" alt="" style="width: 200px; margin-left: 20px;">
+            <img src="../../../../../assets/Visa.png" alt=""
+                style="width: 200px ; height: 128.37px ; margin-left: 30px;">
+            <!-- <img src="../../../../../assets/amex.png" alt="" style="width: 200px ; height: 128.37px ; margin-left: 10px;"> -->
+        </div>
+    </div>
+    <br>
+
+    <form [formGroup]="credform">
+        <div class="row">
+
+            <div class="col">
+                <table>
+                    <tr>
+                        <td>
+                            <Label>Name of the Applicant : </Label>
+                        </td>
+                        <td>
+                            <input type="text" value="{{accountdata.customer.fname}} {{accountdata.customer.lname}} " disabled>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Pan Card Number :</label>
+                        </td>
+                        <td>
+                            <input type="text" formControlName="pan">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Monthly Income :</label>
+                        </td>
+                        <td>
+                            <input type="text" formControlName="income">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Employer:</label>
+                        </td>
+                        <td>
+                            <input type="text" formControlName="employer">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+
+                <table>
+                    <tr>
+                        <td>
+                            <label>Card Type :</label>
+                        </td>
+                        <td>
+                            <select style="margin-left: 85px; width: 90%;" class="form-select" formControlName="ctype" required="true">
+                                <option value="Mastercard">Mastercard</option>
+                                <option value="Visa">Visa</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div>
+            <button style="margin-left: 40% ;" class="btn btn-warning" (click)="getData()" *ngIf = "on">Submit Application</button>
+        </div>
+    </form>
+
+    <div class="card" style="width: 25rem; position: absolute;">
+        <div class="card-body">
+          <h5 class="card-title">Recent Request Submission</h5><hr>
+
+            Account Number : {{reqdetails.acnumber}} <br>
+            Requested For : {{reqdetails.requesttype}} <br><br>
+
+            Current Status : {{reqdetails.approval}}
+        </div>
+      </div>
+
+</div>
+
+</html>

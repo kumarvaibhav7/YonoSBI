@@ -1,0 +1,80 @@
+<html>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col">
+                <h2 style="font-size: 2.3rem ;" class="my-4">Application for Branch Change</h2>
+                <h6 class="my-3">Please fill out our Lightning form</h6>
+            </div>            
+        </div>
+        <br>
+        <form [formGroup]="branchform">
+
+            <div class="row">
+                <div class="col">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Account Holder name :</label>
+                            </td>
+                            <td>
+                                <input type="text" value="{{adata.customer.fname}} {{adata.customer.lname}}" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Account Number</label>
+                            </td>
+                            <td>
+                                <input type="text" value="{{adata.acnumber}}" disabled> 
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Branch Name :</label>
+                            </td>
+                            <td>
+                                <input type="text" value="{{bdata.bname}}" disabled>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="col">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Current Branch Code :</label>
+                            </td>
+                            <td>
+                                <input type="text" value="{{bdata.bcode}}" disabled>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>New Branch Code :</label>
+                            </td>
+                            <td>
+                                <select  class="form-select" required="true" formControlName="bid">
+                                    <!-- <option value="1">Parvat patiya</option>
+                                    <option value="2">Puna Kumbharia</option>
+                                    <option value="3">RACPC</option>
+                                    <option value="4">Bhatar Road</option>
+                                    <option value="5">City Light</option>
+                                    <option value="6">Ghod Dod Road</option>
+                                    <option value="7">Bombay Market</option>
+                                    <option value="8">Katargram</option>
+                                    <option value="9">Sarthana</option>
+                                    <option value="10">Dindoli</option> -->
+                                    <option *ngFor="let branch of branches" value="{{branch.bid}}">{{branch.bname}} </option>
+                                </select>
+                            </td>
+                        </tr>
+                       
+                    </table>
+                </div>
+               
+            </div>
+            <br>
+            <button class="btn btn-warning" style="margin-left: 43% ;" (click)="changebranch()" [disabled]="disabledFlag">Change Branch</button>
+        </form>
+    </div>
+</html>

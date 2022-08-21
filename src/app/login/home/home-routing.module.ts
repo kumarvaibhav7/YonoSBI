@@ -4,6 +4,8 @@ import { DepositComponent } from './deposit/deposit.component';
 import { HomedataComponent } from './homedata/homedata.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ProfileComponent } from './profile/profile.component';
+import { BranchchangeComponent } from './request/branchchange/branchchange.component';
+import { CreditapplyComponent } from './request/creditapply/creditapply.component';
 import { RequestComponent } from './request/request.component';
 import { StatementComponent } from './statement/statement.component';
 
@@ -14,7 +16,9 @@ const routes: Routes = [
     {path:"profile",component:ProfileComponent},
     {path:"deposit",component:DepositComponent},
     {path:"statement",component:StatementComponent},
-    {path:"request",component:RequestComponent}]}
+    {path:"request",component:RequestComponent},
+    {path: "credit", component: CreditapplyComponent},
+    {path:"branchchange", component: BranchchangeComponent}]}
   
 ];
 

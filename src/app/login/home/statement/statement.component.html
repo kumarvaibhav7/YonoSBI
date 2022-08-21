@@ -1,71 +1,4 @@
-
-<!-- <div class="container">
-    <h3 class="my-3">Transaction Details</h3>
-    <hr>
-    <h5 style="margin-bottom: 10px ;">Choose the number of Transaction To Display</h5>
-      
-</div>
-<br><br>
-<mat-paginator [length]="length"
-               [pageSize]="pageSize"
-               [pageSizeOptions]="pageSizeOptions"
-               (page)="pageEvent = $event"
-               aria-label="Select page">
-            </mat-paginator>
-<div *ngIf="pageEvent" class="container">
-    <div class="row">
-        <div class="col">
-            <h5>From/To</h5>
-        </div>
-        <div class="col">
-            <h5>Transaction Id</h5>
-        </div>
-        <div class="col">
-            <h5>Data Of Transaction</h5>
-        </div>
-        <div class="col" >
-            <h5>Type</h5>
-        </div>
-        <div class="col">
-            <h5>Transacted Amount</h5>
-        </div>
-    </div>
-    <hr>
-    <div *ngFor = "let transation of transactions">
-        <div class="row" style="padding: 20px;">
-            <div class="col">
-                {{transation.from_to}}
-            </div>
-            <div class="col">
-                {{transation.tranid}}
-            </div>
-            <div class="col">
-                {{transation.dateoftran}}
-            </div>
-            <div class="col" >
-                {{transation.medium_of_tran}}
-            </div>
-            <div class="col">
-                {{transation.tran_amount|currency:'INR'}}
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div *ngIf="pageEvent">
-    <h5>Page Change Event Properties</h5>
-    <div>List length: {{pageEvent.length}}</div>
-    <div>Page size: {{pageEvent.pageSize}}</div>
-    <div>Page index: {{pageEvent.pageIndex}}</div>
-  </div> -->
-
-
-
-
-
-
-
+<html>
 <div class="container" id="tab">
 
     <table>
@@ -74,9 +7,14 @@
                 <h3 class="my-3">Transaction Details</h3>
             </td>
             <td>
-                <div style="margin-left: 600px;">
-                    Search: <input class="form-control-sm" (keyup)="applyFilter($any($event).target.value)" placeholder="Search Keyword">
+                <div class="form-outline" style="margin-left: 650px; color: white; padding-top: 10px;">
+                    <!-- <label class="form-label" for="search">Search</label>
+                    <input type="text" id="search" class="form-control form-control-sm" (keyup)="applyFilter($any($event).target.value)"/> -->
+                    <mat-form-field>
+                        <input matInput placeholder="Search" (keyup)="applyFilter($any($event).target.value)">
+                    </mat-form-field>
                 </div>
+                
             </td>
         </tr>
     </table>
@@ -113,3 +51,4 @@
                aria-label="Select page">
     </mat-paginator>
 </div>
+</html>

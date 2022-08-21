@@ -67,10 +67,30 @@ export class DataserviceService {
     return this.httpclient.get<Branch>(this.baseurl+"getbranch/"+id);
   }
 
+  postRequestDetails(acnumber, reqData): Observable<Object>{
+    return this.httpclient.post(this.baseurl+"postrequest/"+acnumber , reqData);
+  }
+
+  getReqCount(acnumber: any):Observable<any>{
+    return this.httpclient.get<any>(this.baseurl+"getCountDetails/"+ acnumber)
+  }
+
+  getreqDetails(acnumber:any):Observable<any>{
+    return this.httpclient.get<any>(this.baseurl+"getreqdetails/"+ acnumber)
+  }
+
+  putBranchDetails(acnumber: any ,data:any):Observable<Object>{
+    console.log(acnumber)
+    return this.httpclient.put(this.baseurl+ 'putbranch/'+ acnumber , data)
+  }
+
+
   //vaibhav changes
 
   getcustomers():Observable<Customer>{
     return this.httpclient.get<Customer>(this.baseurl+"getcustomers");
   }
+
+
   
 }

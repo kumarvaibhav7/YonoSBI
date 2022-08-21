@@ -14,7 +14,6 @@ import { DOCUMENT } from '@angular/common';
 })
 export class SigninComponent implements OnInit,AfterViewInit,OnDestroy {
   users:Credentials[]=[];
-
   isUnamevalid: boolean = false;
   check: any;
   constructor(private renderer: Renderer2, private element: ElementRef, @Inject(DOCUMENT) private document: Document,private modalservice:NgbModal, private formBuilder: FormBuilder, private router: Router, private dataservice:DataserviceService) 

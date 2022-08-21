@@ -1,0 +1,21 @@
+html {
+    background: linear-gradient(90deg, #a91b49, 40%, #6b0f64) no-repeat;
+    padding-top: 10px;
+}
+
+h2,
+h6 {
+    color: #fff;
+}
+
+th,
+td {
+    padding: 15px;
+    color: #fff;
+}
+
+.card{
+
+    left: 60%;
+    bottom: 5%;
+}
