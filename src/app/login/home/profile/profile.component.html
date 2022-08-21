@@ -1,105 +1,108 @@
-<div class="container">
-  <div class="row my-2">
-    <div class="col">
-      <img src="../../assets/profile.jfif" alt="" style="height: 300px; width: 330px;  border-radius: 25%;">
-      <br>
-      <br>
-      <div style="margin-left: 20px ;">
-        <p style="margin-bottom: 10px ; font-weight: 700 ; font-size:1.7em">Registered Details : </p>
-        <table>
-          <tr>
-            <td><label>First Name :</label></td>
-            <td>{{adata.customer.fname}}</td>
-          </tr>
-
-          <tr>
-            <!-- <div style="margin-bottom:10px ;">
-                        <td><label>Last Name : </label></td>
-                        <td>{{lname}}</td>
-                    </div> -->
-            <td><label>Last Name :</label></td>
-            <td>{{adata.customer.lname}}</td>
-          </tr>
-
-          <tr>
-            <!-- <div style="margin-bottom:10px ;">
-                        <td><label>Registered Email : </label></td>
-                        <td>{{email}}</td>
-                    </div> -->
-            <td><label>Account Type :</label></td>
-            <td>{{adata.atype}}</td>
-          </tr>
-        </table>
+<html>
+  <div class="container">
+    <div class="row my-4">
+      <div class="col">
+        <img src="../../assets/profile.jfif" alt="" style="height: 300px; width: 330px;  border-radius: 25%;">
+        <br>
+        <br>
+        <div style="margin-left: 20px ;">
+          <p style="margin-bottom: 10px ; font-weight: 700 ; font-size:1.7em">Registered Details : </p>
+          <table>
+            <tr>
+              <td><label>First Name :</label></td>
+              <td>{{adata.customer.fname}}</td>
+            </tr>
+  
+            <tr>
+              <!-- <div style="margin-bottom:10px ;">
+                          <td><label>Last Name : </label></td>
+                          <td>{{lname}}</td>
+                      </div> -->
+              <td><label>Last Name :</label></td>
+              <td>{{adata.customer.lname}}</td>
+            </tr>
+  
+            <tr>
+              <!-- <div style="margin-bottom:10px ;">
+                          <td><label>Registered Email : </label></td>
+                          <td>{{email}}</td>
+                      </div> -->
+              <td><label>Account Type :</label></td>
+              <td>{{adata.atype}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="col">
+        <section>
+          <h2 style="font-size: 2em ; margin-bottom: 50px;">
+            Account Information
+          </h2>
+          <details style="width: 110% ;">
+            <summary>Basic Information</summary>
+            <table >
+              <tr>
+                <td><label>Address :</label></td>
+                <td>{{adata.customer.houseno}} , {{adata.customer.locality}} , {{adata.customer.city}} ,
+                  {{adata.customer.state}} , {{adata.customer.country}} - {{adata.customer.pincode}}</td>
+              </tr>
+              <tr>
+                <td style="width: 150px;"><label>Mobile Number :</label></td>
+                <td>{{adata.customer.mobileno}}</td>
+              </tr>
+              <tr>
+                <td><label>Aadhaar :</label></td>
+                <td>{{adata.customer.aadhaar}}</td>
+              </tr>
+              <tr>
+                <td><label>Date Of Birth :</label></td>
+                <td>{{adata.customer.dateofbirth|date}}</td>
+              </tr>
+            </table>
+          </details>
+          
+          <details style="width: 110% ;">
+            <summary>Account Information</summary>
+            <table >
+              <tr>
+                <td><label>Account Number :</label></td>
+                <td>{{adata.acnumber}}</td>
+              </tr>
+              <tr>
+                <td><label>Branch Details :</label></td>
+                <td>{{bdata.bname}}</td>
+              </tr>
+              <tr>
+                <td><label>Account Opening Date :</label></td>
+                <td>{{adata.accopendate|date}}</td>
+              </tr>
+              <tr>
+                <td><label>Account Status :</label></td>
+                <td>{{adata.astatus}}</td>
+              </tr>
+            </table>
+          </details>
+          <!-- <details>
+                    <summary>Information</summary>
+                    <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
+                  </details>
+                  <details>
+                    <summary>Specifications
+                    </summary>
+                    <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
+                  </details> -->
+        </section>
       </div>
     </div>
-    <div class="col">
-      <section>
-        <h1>
-          Account Information
-        </h1>
-        <details>
-          <summary>Basic Information</summary>
-          <table>
-            <tr>
-              <td><label>Address :</label></td>
-              <td>{{adata.customer.houseno}} , {{adata.customer.locality}} , {{adata.customer.city}} ,
-                {{adata.customer.state}} , {{adata.customer.country}} - {{adata.customer.pincode}}</td>
-            </tr>
-            <tr>
-              <td style="width: 150px;"><label>Mobile Number :</label></td>
-              <td>{{adata.customer.mobileno}}</td>
-            </tr>
-            <tr>
-              <td><label>Aadhaar :</label></td>
-              <td>{{adata.customer.aadhaar}}</td>
-            </tr>
-            <tr>
-              <td><label>Date Of Birth :</label></td>
-              <td>{{adata.customer.dateofbirth|date}}</td>
-            </tr>
-          </table>
-        </details>
-        <details>
-          <summary>Account Information</summary>
-          <table>
-            <tr>
-              <td style="width: 150px;"><label>Account Number :</label></td>
-              <td>{{adata.acnumber}}</td>
-            </tr>
-            <tr>
-              <td><label>Branch Details :</label></td>
-              <td>{{bdata.bname}}</td>
-            </tr>
-            <tr>
-              <td><label>Account Opening Date :</label></td>
-              <td>{{adata.accopendate|date}}</td>
-            </tr>
-            <tr>
-              <td><label>Account Status :</label></td>
-              <td>{{adata.astatus}}</td>
-            </tr>
-          </table>
-        </details>
-        <!-- <details>
-                  <summary>Information</summary>
-                  <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
-                </details>
-                <details>
-                  <summary>Specifications
-                  </summary>
-                  <p>Lorem ipsum dolor sit amet, eu alia suscipit mei. Reque iriure delectus vix id, ex sed forensibus suscipiantur. In eos exerci mollis apeirian, an qui latine alienum. Ad mea libris maluisset, consul assueverit sea ex. </p>
-                </details> -->
-      </section>
-    </div>
   </div>
-</div>
-<!-- 
-<div class="container">
-    <div class="col-md-6 my-4">
-        
-
-    </div>
-    <div class="col-md-6 my-4">
-        
-    </div>
-</div> -->
+  <!-- 
+  <div class="container">
+      <div class="col-md-6 my-4">
+          
+  
+      </div>
+      <div class="col-md-6 my-4">
+          
+      </div>
+  </div> -->
+</html>

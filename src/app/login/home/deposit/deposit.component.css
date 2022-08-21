@@ -1,8 +1,29 @@
 .verticalLine {
     height: 250px;
-    border-right: 1px solid #000900;
+    border-right: 1px solid #f2f2f2;
     position: absolute;
     right: 50%;
-    top: 300px;
+    top: 330px;
+}
+
+html{
+    background: linear-gradient(90deg, #a91b49, 40%, #6b0f64) no-repeat;
+    padding: 10px;
+    color: #f2f2f2;
+}
+
+.card {
+
+    background-color: rgb(231, 216, 216);
+    letter-spacing: 2px;
+    color: black;
+
+}
+
+.btn {
+    border: none;
+    color: #fff;
+    background-color: #a00637;
+    width: 100%;
 }
 
