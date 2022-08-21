@@ -1,6 +1,8 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, DoCheck, ElementRef, Inject, OnInit, Renderer2 } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataserviceService } from 'src/app/login/dataservice.service';
 
 @Component({
@@ -17,7 +19,7 @@ export class BranchchangeComponent implements OnInit,DoCheck {
   branches: any;
   disabledFlag : Boolean = false
 
-  constructor(private formbuilder: FormBuilder, public route: ActivatedRoute, private dataservice: DataserviceService, private router : Router) {
+  constructor(private modalservice:NgbModal, private renderer: Renderer2, private element: ElementRef, @Inject(DOCUMENT) private document: Document,private formbuilder: FormBuilder, public route: ActivatedRoute, private dataservice: DataserviceService, private router : Router) {
     this.dataservice.getactiveuserdetails(this.route.snapshot.pathFromRoot[1].url[0].path).subscribe(data => {
       this.adata = data;
       console.log(this.adata)
@@ -50,13 +52,26 @@ export class BranchchangeComponent implements OnInit,DoCheck {
     })
   }
 
-  changebranch() {
+  ngAfterViewInit() {
+    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'height', 'auto !important');
+    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'overflow-y', 'hidden');
+  }
+
+  ngOnDestroy() {
+    this.renderer.removeStyle(this.document.body, 'overflow-y');
+  }
+
+  changebranch(submitModal:any) {
     //console.log(this.branchform);
     this.adata.bid = this.branchform.value.bid;
     console.log(this.adata);
     this.dataservice.putBranchDetails(this.route.snapshot.pathFromRoot[1].url[0].path, this.adata).subscribe((data) =>{
       console.log(data)
     })
+    this.modalservice.open(submitModal, { centered: true });
+  }
+
+  gotorequest(){
     this.router.navigate([this.route.snapshot.pathFromRoot[1].url[0].path+'/home/request'])
   }
 }

@@ -1,0 +1,20 @@
+html {
+    background: linear-gradient(90deg, #a91b49, 40%, #6b0f64);
+    overflow-x: scroll;
+}
+
+.card-header{
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    background-color: #e4e4e4;
+}
+
+form{
+    background-color: #f1f1f1;
+}
+
+p{
+    font-weight: 500; 
+    font-size: large;
+}

@@ -1,17 +1,18 @@
+<html>
 <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" [routerLink]="['']">
         <img style="margin-left: 50px;" width="160" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
     </a>
 </nav>
-<div style="overflow-x: hidden;">
+<div style="overflow-x: hidden; justify-content: center;">
     <div class="card" style="width:95%; margin: 10px auto;">
-        <div class="card-header text-xl-center">
+        <div class="card-header text-center">
             User Driven Registration: New User
         </div>
         <form [formGroup]="accountform">
             <div style="padding: 10px; margin-bottom: 50px;">
                 <div style="padding: 10px;">
-                    <p style="margin-left: 20px;">Account Details:</p>
+                    <p>Account Details:</p>
                     <hr>
                     <table>
                         <tr>
@@ -32,8 +33,8 @@
                     <hr>
                 </div>
 
-                <div formGroupName="customerform">
-                    <p style="margin-left: 20px;">Basic Details:</p>
+                <div formGroupName="customerform" style="padding: 10px;">
+                    <p>Basic Details:</p>
                     <hr>
                     <table>
                         <tr>
@@ -73,8 +74,9 @@
                         </tr>
                     </table>
                     <hr>
-                    <div style="padding: 10px;">
-                        <p style="margin-left: 20px;">Address Details:</p>
+                    <br>
+                    <div>
+                        <p>Address Details:</p>
                         <hr>
                         <table>
                             <tr>
@@ -109,7 +111,7 @@
                         </table>
                     </div>
                     <div style="position: relative; left:35%">
-                        <input style="margin: 50px; padding: 10px 100px;" [disabled]="accountform.invalid"
+                        <input class="btn" style="margin: 50px 50px 10px 50px; padding: 10px 100px; background-color: #a91b49; color: white;" [disabled]="accountform.invalid"
                             (click)="adduser(signup,duplicate)" type="submit">
                     </div>
                 </div>
@@ -150,3 +152,5 @@
             (click)="backtosignin()">Go to Signin</button>
     </div>
 </ng-template>
+
+</html>

@@ -24,7 +24,8 @@
                             <Label>Name of the Applicant : </Label>
                         </td>
                         <td>
-                            <input type="text" value="{{accountdata.customer.fname}} {{accountdata.customer.lname}} " disabled>
+                            <input type="text" class="form-control"
+                                value="{{accountdata.customer.fname}} {{accountdata.customer.lname}} " disabled>
                         </td>
                     </tr>
                     <tr>
@@ -32,7 +33,7 @@
                             <label>Pan Card Number :</label>
                         </td>
                         <td>
-                            <input type="text" formControlName="pan">
+                            <input class="form-control" type="text" formControlName="pan">
                         </td>
                     </tr>
                 </table>
@@ -44,7 +45,7 @@
                             <label>Monthly Income :</label>
                         </td>
                         <td>
-                            <input type="text" formControlName="income">
+                            <input class="form-control" type="text" formControlName="income">
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +53,7 @@
                             <label>Employer:</label>
                         </td>
                         <td>
-                            <input type="text" formControlName="employer">
+                            <input class="form-control" type="text" formControlName="employer">
                         </td>
                     </tr>
                 </table>
@@ -67,7 +68,8 @@
                             <label>Card Type :</label>
                         </td>
                         <td>
-                            <select style="margin-left: 85px; width: 90%;" class="form-select" formControlName="ctype" required="true">
+                            <select style="margin-left: 85px; width: 90%;" class="form-select" formControlName="ctype"
+                                required="true">
                                 <option value="Mastercard">Mastercard</option>
                                 <option value="Visa">Visa</option>
                             </select>
@@ -78,21 +80,58 @@
         </div>
         <br>
         <div>
-            <button style="margin-left: 40% ;" class="btn btn-warning" (click)="getData()" *ngIf = "on">Submit Application</button>
+            <button style="margin-left: 40% ;" class="btn btn-warning" (click)="getData(submit)" *ngIf="on">Submit
+                Application</button>
         </div>
     </form>
 
     <div class="card" style="width: 25rem; position: absolute;">
         <div class="card-body">
-          <h5 class="card-title">Recent Request Submission</h5><hr>
+            <h5 class="card-title" style="font-weight: 700;">Recent Request Submission</h5>
+            <hr>
 
-            Account Number : {{reqdetails.acnumber}} <br>
-            Requested For : {{reqdetails.requesttype}} <br><br>
+            <span style="font-weight: 600;">Account Number :  </span>{{reqdetails.acnumber}} <br>
+            <span style="font-weight: 600;">Requested For :  </span>{{reqdetails.requesttype}} <br>
+            <span style="font-weight: 600;">Pan Card No. :  </span>{{reqdetails.panno}} <br>
 
-            Current Status : {{reqdetails.approval}}
+            <span style="font-weight: 600;">Status :  </span>{{reqdetails.approval}}
         </div>
-      </div>
+    </div>
 
 </div>
+
+<ng-template #submitted let-modal>
+    <div class="modal-header">
+        <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">Already Applied For Credit
+            Card</h4>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-weight: 500;">You have already applied for Credit Card. Disabling Services!</span>
+        <img height="300px" width="400px"
+            src="https://i.pinimg.com/originals/99/43/30/994330d7db2eaf797f76c5f0e4a50d10.gif"
+            alt="Credit card applied">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
+
+
+<ng-template #submit let-modal>
+    <div class="modal-header">
+        <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">Application Submitted</h4>
+    </div>
+    <div class="modal-body text-center">
+        <span style="font-weight: 500;">Application Submitted Successfully!</span>
+        <img height="300px" width="400px"
+            src="https://i.pinimg.com/originals/f8/b0/a2/f8b0a277e663688f577cf09101d1d1fe.gif"
+            alt="Credit card application">
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')"
+            (click)="gotorequest()">Close</button>
+    </div>
+</ng-template>
+
 
 </html>

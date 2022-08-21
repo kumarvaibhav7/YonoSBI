@@ -74,7 +74,26 @@
                
             </div>
             <br>
-            <button class="btn btn-warning" style="margin-left: 43% ;" (click)="changebranch()" [disabled]="disabledFlag">Change Branch</button>
+            <button class="btn btn-warning" style="margin-left: 43% ;" (click)="changebranch(submit)" [disabled]="disabledFlag">Change Branch</button>
         </form>
     </div>
+
+
+
+    <ng-template #submit let-modal>
+        <div class="modal-header">
+            <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">Application Submitted</h4>
+        </div>
+        <div class="modal-body text-center">
+            <span style="font-weight: 500;">Branch Changed Successfully!</span>
+            <img height="300px" width="400px"
+                src="https://i.gifer.com/S3Vx.gif"
+                alt="Branch Change application">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="modal.close('Close click')"
+                (click)="gotorequest()">Close</button>
+        </div>
+    </ng-template>
+
 </html>
