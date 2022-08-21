@@ -52,7 +52,7 @@ export class DepositComponent implements OnInit, DoCheck {
     else {
       this.iszero = false;
     }
-    if (this.deposit.toString().match(/^[0-9]+$/) == null && this.deposit.toString() != "" && this.deposit.toString() == "-") {
+    if (!/\d/.test(this.deposit.toString()) && this.deposit.toString()!="") {
       this.ischar = true;
     }
     else {

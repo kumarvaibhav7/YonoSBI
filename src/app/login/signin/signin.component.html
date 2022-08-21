@@ -10,32 +10,13 @@
         </div>
     </ng-template>
 </ngb-carousel>
-<div class="card" style="position: absolute; top: 15%; left:66%;">
+<div class="card" style="position: absolute; top: 18%; left:70%;">
     <div class="card-header text-xl" style="padding-top: 20px ; padding-bottom: 10px ; padding-left: 20px; "  >
         Welcome to<br>
         <img width="160" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
     </div>
-    <!-- <div class="card-body">
-        <form [formGroup]="loginform">
-            <div style="padding: 10px;">
-                <div style="padding: 10px;">
-                    <input style=" width: 300px;" type="text" formControlName="username" required="true"
-                        placeholder="Username">
-                    <div class="text-danger" *ngIf="loginform.get('username')?.invalid">Username is invalid.</div>
-                </div>
-                <div style="padding: 10px;">
-                    <input style="width: 300px;" type="password" formControlName="password" [required]="true"
-                        placeholder="Password">
-                    <div class="text-danger" *ngIf="loginform.get('password')?.invalid">Password is invalid.</div>
-                </div>
-                <div style="padding: 10px;">
-                    <input style="width:300px" (click)="verify(invalid)" type="submit">
-                </div>
-            </div>
-        </form>
-    </div> -->
     <form [formGroup]="loginform">
-        <div class="card-body">
+        <div class="card-body" style="padding: 0;">
             <div class="body">
                 <div class="inputBox">
                     <input type="text" required="required" formControlName="username" required="true">
@@ -52,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="card-footer" style="padding: 25px ;">
+        <div class="card-footer" style="padding: 10px ;">
             <p style="font-size: 90%; padding-bottom: 5px ;">The Username is (Last Name).(First.Name).</p>
             <p style="font-size: 90%;">The Password is registered Mobile Number.</p>
         </div>
@@ -62,18 +43,16 @@
 
 
 <ng-template #invalid let-modal>
-    <div class="modal-header" style="background-color: #272822;
-    color: white;">
+    <div class="modal-header">
         <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">Invalid Credentials!</h4>
     </div>
-    <div class="modal-body text-center" style="background-color: #272822;
-    color: white;">
-        <img height="300px" width="400px"
-            src="https://64.media.tumblr.com/147ebc2c40da6805d38712b3a0bb2010/tumblr_oyyopiWL321rn5gv3o1_500.gif"
+    <div class="modal-body text-center">
+        <span style="font-weight: 500; letter-spacing: 2px;">Invalid Username or Password!</span>
+        <img height="200px" width="400px"
+            src="https://xd.adobe.com/ideas/wp-content/uploads/2019/12/user-animation.gif"
             alt="Invalid Credentials">
     </div>
-    <div class="modal-footer" style="background-color: #272822;
-    color: white;">
+    <div class="modal-footer">
         <button type="button" class="btn btn-outline-success" (click)="modal.close('Close click')">Retry</button>
         <button type="button" class="btn btn-outline-danger" (click)="modal.close('Close click')"
             [routerLink]="['createAccount']">Create new Account</button>
