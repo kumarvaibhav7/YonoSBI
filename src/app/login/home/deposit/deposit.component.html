@@ -85,9 +85,9 @@
   </div>
   <div class="modal-body text-center">
     <img *ngIf="!istransactioncomplete" height="300px" width="400px"
-      src="https://www.aalpha.net/wp-content/uploads/2021/05/integrate-payment-gateway.gif" alt="Payment Processing">
+      src="../../../../assets/payment-gateway.gif" alt="Payment Processing">
     <img *ngIf="istransactioncomplete" height="300px" width="400px"
-      src="https://i.pinimg.com/originals/0d/e4/1a/0de41a3c5953fba1755ebd416ec109dd.gif" alt="Payment Complete">
+      src="../../../../assets/completed-tran.gif" alt="Payment Complete">
   </div>
   <div *ngIf="istransactioncomplete" class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')"
@@ -100,7 +100,7 @@
     <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">No Account Found</h4>
   </div>
   <div class="modal-body text-center">
-    <img height="300px" width="400px" src="https://c.tenor.com/unvXyxtdn3oAAAAC/no-result.gif" alt="Payment Processing">
+    <img height="300px" width="400px" src="../../../../assets/no-result.gif" alt="Payment Processing">
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
