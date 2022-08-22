@@ -12,15 +12,14 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit,AfterViewInit,OnDestroy {
-  users:Credentials[]=[];
+export class SigninComponent implements OnInit, AfterViewInit, OnDestroy {
+  users: Credentials[] = [];
   isUnamevalid: boolean = false;
   check: any;
-  constructor(private renderer: Renderer2, private element: ElementRef, @Inject(DOCUMENT) private document: Document,private modalservice:NgbModal, private formBuilder: FormBuilder, private router: Router, private dataservice:DataserviceService) 
-  {
-    this.dataservice.getUnamePass().subscribe(data=>{
+  constructor(private renderer: Renderer2, private element: ElementRef, @Inject(DOCUMENT) private document: Document, private modalservice: NgbModal, private formBuilder: FormBuilder, private router: Router, private dataservice: DataserviceService) {
+    this.dataservice.getUnamePass().subscribe(data => {
       console.log(data);
-      this.users=data;
+      this.users = data;
     })
   }
   loginform: any;
@@ -58,12 +57,12 @@ export class SigninComponent implements OnInit,AfterViewInit,OnDestroy {
     }
   }
   flag: boolean = false;
-  verify(invalidModal:any) {
+  verify(invalidModal: any) {
     // console.log(this.loginform.get('username')?.value);
     // console.log(this.loginform.get('password')?.value);
     for (let i = 0; i < this.users.length; i++) {
       if (this.users[i].username === this.loginform.get('username')?.value && this.users[i].password === this.loginform.get('password')?.value) {
-        this.router.navigate([this.users[i].account+"/home/homedata"])
+        this.router.navigate([this.users[i].account + "/home/homedata"])
         this.flag = true;
         break;
       }
@@ -71,6 +70,6 @@ export class SigninComponent implements OnInit,AfterViewInit,OnDestroy {
     if (this.flag === false) {
       this.modalservice.open(invalidModal, { centered: true });
     }
-    this.flag=false;
+    this.flag = false;
   }
 }
