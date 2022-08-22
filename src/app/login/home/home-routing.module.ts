@@ -10,14 +10,14 @@ import { RequestComponent } from './request/request.component';
 import { StatementComponent } from './statement/statement.component';
 
 const routes: Routes = [
-  {path:"",component:HomepageComponent,
+  {path:"",component:HomepageComponent,  // homepage component renders the navbar which is common though out the project
   children:[
     {path:"homedata",component:HomedataComponent},
     {path:"profile",component:ProfileComponent},
     {path:"deposit",component:DepositComponent},
     {path:"statement",component:StatementComponent},
     {path:"request",component:RequestComponent},
-    {path: "credit", component: CreditapplyComponent},
+    {path:"credit", component: CreditapplyComponent},
     {path:"branchchange", component: BranchchangeComponent}]}
   
 ];

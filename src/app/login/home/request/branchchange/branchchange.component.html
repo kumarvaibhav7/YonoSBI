@@ -54,16 +54,7 @@
                             </td>
                             <td>
                                 <select  class="form-select" required="true" formControlName="bid">
-                                    <!-- <option value="1">Parvat patiya</option>
-                                    <option value="2">Puna Kumbharia</option>
-                                    <option value="3">RACPC</option>
-                                    <option value="4">Bhatar Road</option>
-                                    <option value="5">City Light</option>
-                                    <option value="6">Ghod Dod Road</option>
-                                    <option value="7">Bombay Market</option>
-                                    <option value="8">Katargram</option>
-                                    <option value="9">Sarthana</option>
-                                    <option value="10">Dindoli</option> -->
+                                    
                                     <option *ngFor="let branch of branches" value="{{branch.bid}}">{{branch.bname}} </option>
                                 </select>
                             </td>

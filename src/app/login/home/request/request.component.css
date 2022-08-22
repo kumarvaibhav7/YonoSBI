@@ -11,7 +11,7 @@ h3,h6 {
 
 body {
     margin: 2em;
-    /* background-image: linear-gradient(white 90%, blue); */
+    
 }
 
 .bt {
@@ -34,14 +34,14 @@ body {
     margin-top: 1em;
     background-color: white;
     display: block;
-    height: 2px;
+    height: 1px;
     width: 0%;
     transition: 0.7s ease-in-out;
 }
 
 .bt:hover::after{
     content: "";
-    height: 2px;
+    height: 1px;
     width: 100%;
     background-color: white;
     display: block;
