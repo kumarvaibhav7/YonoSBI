@@ -19,17 +19,17 @@
         <div class="card-body" style="padding: 0;">
             <div class="body">
                 <div class="inputBox">
-                    <input type="text" required="required" formControlName="username" required="true">
+                    <input type="text" required formControlName="username" required="true">
                     <div class="text-danger" *ngIf="loginform.get('username')?.invalid">Username is invalid.</div>
                     <span>User Name</span>
                 </div>
                 <div class="inputBox">
-                    <input type="text" required="required" formControlName="password" [required]="true">
+                    <input type="password" required formControlName="password" [required]="true">
                     <div class="text-danger" *ngIf="loginform.get('password')?.invalid">Password is invalid.</div>
                     <span>Password</span>
                 </div>
                 <div>
-                    <input style="width:200px; height: 45px; position: relative; top: -14px; background-color: #ac5295; border: none; border-radius: 5px; color: white;"  (click)="verify(invalid)" type="submit">
+                    <input style="width:200px; height: 45px; position: relative; top: -14px; background-color: #ac5295; border: none; border-radius: 5px; color: white;" [disabled]="loginform.invalid"  (click)="verify(invalid)" type="submit">
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
     <div class="modal-body text-center">
         <span style="font-weight: 500; letter-spacing: 2px;">Invalid Username or Password!</span>
         <img height="200px" width="400px"
-            src="https://xd.adobe.com/ideas/wp-content/uploads/2019/12/user-animation.gif"
+            src="../../../assets/incorrect_pass.gif"
             alt="Invalid Credentials">
     </div>
     <div class="modal-footer">
