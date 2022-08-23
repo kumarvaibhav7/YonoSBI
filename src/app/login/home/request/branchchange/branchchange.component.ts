@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, DoCheck, ElementRef, Inject, OnInit, Renderer2 } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataserviceService } from 'src/app/login/dataservice.service';
@@ -48,7 +48,7 @@ export class BranchchangeComponent implements OnInit,DoCheck {
 
   ngOnInit(): void {
     this.branchform = this.formbuilder.group({
-      bid: [""]
+      bid: ["",[Validators.required]]
     })
   }
 

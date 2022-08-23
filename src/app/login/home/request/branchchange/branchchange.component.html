@@ -65,7 +65,7 @@
                
             </div>
             <br>
-            <button class="btn btn-warning" style="margin-left: 43% ;" (click)="changebranch(submit)" [disabled]="disabledFlag">Change Branch</button>
+            <button class="btn btn-warning" style="margin-left: 43% ;" (click)="changebranch(submit)" [disabled]="disabledFlag || branchform.invalid">Change Branch</button>
         </form>
     </div>
 
