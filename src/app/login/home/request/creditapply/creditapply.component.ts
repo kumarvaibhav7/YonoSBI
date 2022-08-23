@@ -1,6 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { Component, ElementRef, Inject, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DataserviceService } from 'src/app/login/dataservice.service';
@@ -40,10 +40,10 @@ export class CreditapplyComponent implements OnInit {
 
   ngOnInit(): void {
     this.credform = this.formbuilder.group({
-      pan: [""],
-      income: [""],
-      employer: [""],
-      ctype: [""]
+      pan: ["",[Validators.required]],
+      income: ["",[Validators.required]],
+      employer: ["",[Validators.required]],
+      ctype: ["",[Validators.required]]
     })
     this.dataService.getactiveuserdetails(this.route.snapshot.pathFromRoot[1].url[0].path).subscribe(respdata => {
       console.log(respdata)
@@ -78,5 +78,13 @@ export class CreditapplyComponent implements OnInit {
 
   gotorequest() {
     this.router.navigate([this.route.snapshot.pathFromRoot[1].url[0].path + '/home/request'])
+  }
+
+  isinvalid(){
+    if(this.on ==true && this.credform.invalid==false){
+      return false;
+    }
+    console.log(this.on,this.credform.invalid);
+    return true;
   }
 }
