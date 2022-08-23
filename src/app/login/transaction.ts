@@ -5,5 +5,4 @@ export class Transaction {
     medium_of_tran:string|undefined;
     tran_amount:number|undefined;
     tranid:string|undefined;
-
 }
