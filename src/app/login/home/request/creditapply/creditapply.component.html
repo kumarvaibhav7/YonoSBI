@@ -9,7 +9,7 @@
             <img src="../../../../../assets/mastercard.png" alt="" style="width: 200px; margin-left: 20px;">
             <img src="../../../../../assets/Visa.png" alt=""
                 style="width: 200px ; height: 128.37px ; margin-left: 30px;">
-            
+
         </div>
     </div>
     <br>
@@ -47,10 +47,9 @@
                         <td>
                             <input class="form-control" required type="text" formControlName="income">
                             <!-- <span *ngIf="ischar" class="text-danger">Amount should not be a character.</span> -->
-                            <div class="text-danger" style="margin-top: 5px;"
-                            *ngIf = "credform.get('income')?.invalid"
-                            >
-                            Valid Data Needed(No character , more than 0)
+                            <div class="text-danger" style="margin-top: 5px; position: absolute;"
+                                *ngIf="credform.get('income')?.invalid">
+                                Valid Data Needed(No character , more than 0)
                             </div>
                         </td>
                     </tr>
@@ -74,8 +73,8 @@
                             <label>Card Type :</label>
                         </td>
                         <td>
-                            <select style="margin-left: 85px; width: 90%;" required class="form-select" formControlName="ctype"
-                                required>
+                            <select style="margin-left: 85px; width: 90%;" required class="form-select"
+                                formControlName="ctype" required>
                                 <option value="Mastercard">Mastercard</option>
                                 <option value="Visa">Visa</option>
                             </select>
@@ -86,7 +85,8 @@
         </div>
         <br>
         <div>
-            <button style="margin-left: 40% ;" [disabled]="isinvalid()" class="btn btn-warning" (click)="getData(submit)">Submit Application</button>
+            <button style="margin-left: 40% ;" [disabled]="isinvalid()" class="btn btn-warning"
+                (click)="getData(submit)">Submit Application</button>
         </div>
     </form>
     <div class="card" style="width: 25rem; position: absolute;">
@@ -94,11 +94,11 @@
             <h5 class="card-title" style="font-weight: 700;">Recent Request Submission</h5>
             <hr>
 
-            <span style="font-weight: 600;">Account Number :  </span>{{reqdetails.acnumber}} <br>
-            <span style="font-weight: 600;">Requested For :  </span>{{reqdetails.requesttype}} <br>
-            <span style="font-weight: 600;">Pan Card No. :  </span>{{reqdetails.panno}} <br>
+            <span style="font-weight: 600;">Account Number : </span>{{reqdetails.acnumber}} <br>
+            <span style="font-weight: 600;">Requested For : </span>{{reqdetails.requesttype}} <br>
+            <span style="font-weight: 600;">Pan Card No. : </span>{{reqdetails.panno}} <br>
 
-            <span style="font-weight: 600;">Status :  </span>{{reqdetails.approval}}
+            <span style="font-weight: 600;">Status : </span>{{reqdetails.approval}}
         </div>
     </div>
 
@@ -111,9 +111,7 @@
     </div>
     <div class="modal-body text-center">
         <span style="font-weight: 500;">You have already applied for Credit Card. Disabling Services!</span>
-        <img height="300px" width="400px"
-            src="../../../../../assets/alreadyapplied.gif"
-            alt="Credit card applied">
+        <img height="300px" width="400px" src="../../../../../assets/alreadyapplied.gif" alt="Credit card applied">
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
@@ -127,9 +125,7 @@
     </div>
     <div class="modal-body text-center">
         <span style="font-weight: 500;">Application Submitted Successfully!</span>
-        <img height="300px" width="400px"
-            src="../../../../../assets/appliedcredit.gif"
-            alt="Credit card application">
+        <img height="300px" width="400px" src="../../../../../assets/appliedcredit.gif" alt="Credit card application">
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')"

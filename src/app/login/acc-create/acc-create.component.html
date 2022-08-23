@@ -91,28 +91,30 @@
                                 <td style="padding: 20px;"><label for="city">City:</label></td>
                                 <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
                                         type="text" formControlName="city" required></td>
-                                <td style="padding: 20px 0 20px 200px;"><label for="state">State:</label></td>
-                                <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
-                                        type="text" formControlName="state" required></td>
-                            </tr>
-                            <tr>
-                                <td style="padding: 20px;"><label for="country">Country:</label></td>
+
+                                <td style="padding: 20px 0 20px 200px;"><label for="country">Country:</label></td>
                                 <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
                                         type="text" formControlName="country" required></td>
-                                <td style="padding: 20px 0 20px 200px;"><label for="pincode">Pincode</label></td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 20px;"><label for="pincode">Pincode</label></td>
                                 <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
                                         type="number" formControlName="pincode" required>
                                     <div class="text-danger"
                                         *ngIf="accountform.get('customerform').get('pincode')?.invalid"> Pincode is
                                         invalid.</div>
                                 </td>
+                                <td style="padding: 20px 0 20px 200px;"><label for="state">State:</label></td>
+                                <td style="padding-left: 40px;"><input class="form-control" style=" width: 300px;"
+                                        type="text" formControlName="state" required></td>
                             </tr>
 
                         </table>
                     </div>
                     <div style="position: relative; left:35%">
-                        <input class="btn" style="margin: 50px 50px 10px 50px; padding: 10px 100px; background-color: #a91b49; color: white;" [disabled]="accountform.invalid"
-                            (click)="adduser(signup,duplicate)" type="submit">
+                        <input class="btn"
+                            style="margin: 50px 50px 10px 50px; padding: 10px 100px; background-color: #a91b49; color: white;"
+                            [disabled]="accountform.invalid" (click)="adduser(signup,duplicate)" type="submit">
                     </div>
                 </div>
             </div>
@@ -128,9 +130,7 @@
         <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">New Account Added</h4>
     </div>
     <div class="modal-body text-center">
-        <img height="300px" width="400px"
-            src="../../../assets/createdaccount.gif"
-            alt="Account Created Successfully.">
+        <img height="300px" width="400px" src="../../../assets/createdaccount.gif" alt="Account Created Successfully.">
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')"
@@ -143,7 +143,6 @@
         <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">User Already Exist</h4>
     </div>
     <div class="modal-body text-center">
-        <!-- <img height="300px" width="400px" src="https://cdn.dribbble.com/users/2726709/screenshots/6522118/untitled-1.gif" alt="Account Created Successfully."> -->
         <h6>User already exist.....</h6>
     </div>
     <div class="modal-footer">

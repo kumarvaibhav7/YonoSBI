@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, ElementRef, Inject, OnDestroy, OnInit, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Credentials } from '../credentials';
 import { DataserviceService } from '../dataservice.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { DOCUMENT } from '@angular/common';
 
 
 @Component({
@@ -12,11 +11,12 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.css']
 })
-export class SigninComponent implements OnInit, AfterViewInit, OnDestroy {
+export class SigninComponent implements OnInit {
   users: Credentials[] = [];
   isUnamevalid: boolean = false;
   check: any;
-  constructor(private renderer: Renderer2, private element: ElementRef, @Inject(DOCUMENT) private document: Document, private modalservice: NgbModal, private formBuilder: FormBuilder, private router: Router, private dataservice: DataserviceService) {
+  constructor(private modalservice: NgbModal, private formBuilder: FormBuilder,
+    private router: Router, private dataservice: DataserviceService) {
     this.dataservice.getUnamePass().subscribe(data => {
       console.log(data);
       this.users = data;
@@ -28,15 +28,6 @@ export class SigninComponent implements OnInit, AfterViewInit, OnDestroy {
       username: ["", [Validators.required, this.usernameValidator]],
       password: ["", [Validators.required, this.passwordValidator]]
     });
-  }
-
-  ngAfterViewInit() {
-    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'height', 'auto !important');
-    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'overflow-y', 'hidden');
-  }
-
-  ngOnDestroy() {
-    this.renderer.removeStyle(this.document.body, 'overflow-y');
   }
 
   usernameValidator(control: AbstractControl): ValidationErrors | null {

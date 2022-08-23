@@ -84,10 +84,10 @@
     <h4 id="status" style="font-weight: 600; letter-spacing: 2px;" class="modal-title">Processing Payment</h4>
   </div>
   <div class="modal-body text-center">
-    <img *ngIf="!istransactioncomplete" height="300px" width="400px"
-      src="../../../../assets/payment-gateway.gif" alt="Payment Processing">
-    <img *ngIf="istransactioncomplete" height="300px" width="400px"
-      src="../../../../assets/completed-tran.gif" alt="Payment Complete">
+    <img *ngIf="!istransactioncomplete" height="300px" width="400px" src="../../../../assets/payment-gateway.gif"
+      alt="Payment Processing">
+    <img *ngIf="istransactioncomplete" height="300px" width="400px" src="../../../../assets/completed-tran.gif"
+      alt="Payment Complete">
   </div>
   <div *ngIf="istransactioncomplete" class="modal-footer">
     <button type="button" class="btn btn-light" (click)="modal.close('Close click')"

@@ -7,7 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccCreateComponent } from './acc-create/acc-create.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -25,7 +25,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     HttpClientModule,
     MatPaginatorModule
   ],
-  exports:[
+  exports: [
     SigninComponent
   ]
 })

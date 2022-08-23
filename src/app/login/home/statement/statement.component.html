@@ -8,12 +8,12 @@
             </td>
             <td>
                 <div class="form-outline" style="margin-left: 650px; color: white; padding-top: 10px;">
-                    
+
                     <mat-form-field>
                         <input matInput placeholder="Search" (keyup)="applyFilter($any($event).target.value)">
                     </mat-form-field>
                 </div>
-                
+
             </td>
         </tr>
     </table>
@@ -40,14 +40,13 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Amount</mat-header-cell>
                 <mat-cell *matCellDef="let row">{{row.tran_amount}}</mat-cell>
             </ng-container>
-    
+
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns:displayedColumns;"></mat-row>
         </mat-table>
     </div>
-    <mat-paginator [length]="100"
-               [pageSize]="6"
-               aria-label="Select page">
+    <mat-paginator [length]="100" [pageSize]="6" aria-label="Select page">
     </mat-paginator>
 </div>
+
 </html>

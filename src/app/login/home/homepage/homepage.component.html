@@ -1,11 +1,13 @@
 <nav class="navbar navbar-light bg-light">
-  <button style="margin-left: 10px;" class="btn btn-lg btn-light" data-bs-toggle="offcanvas" data-bs-target="#sidebar"><i class="fa-solid fa-bars"></i></button>
+  <button style="margin-left: 10px;" class="btn btn-lg btn-light" data-bs-toggle="offcanvas"
+    data-bs-target="#sidebar"><i class="fa-solid fa-bars"></i></button>
   <a class="navbar-brand" [routerLink]="['homedata']">
-      <img style="margin-left: 50px;" width="150" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
+    <img style="margin-left: 50px;" width="150" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
   </a>
   <div style="margin-left: 50%;">Welcome {{user}}</div>
   <button class="btn btn-medium btn-light" [routerLink]="['profile']"><i class="fa-solid fa-user"></i></button>
-  <button class="btn btn-medium btn-light" (click)="canlogout(logout)"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+  <button class="btn btn-medium btn-light" (click)="canlogout(logout)"><i
+      class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
 </nav>
 <div class="offcanvas offcanvas-start" id="sidebar" style="background-color:#f1d0db;">
   <div class="offcanvas-header">
@@ -13,7 +15,7 @@
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
   </div>
   <div class="offcanvas-body">
-    
+
     <button class="btnn btnn5" [routerLink]="['homedata']">
       <h4>HomePage</h4>
     </button>
@@ -44,6 +46,7 @@
   </div>
   <div class="modal-footer dark-modal">
     <button type="button" class="btn btn-outline-danger" (click)="modal.close('Close click')">No</button>
-    <button type="button" class="btn btn-outline-success" (click)="modal.close('Close click')" (click)="backtosignin()">Yes</button>
+    <button type="button" class="btn btn-outline-success" (click)="modal.close('Close click')"
+      (click)="backtosignin()">Yes</button>
   </div>
 </ng-template>

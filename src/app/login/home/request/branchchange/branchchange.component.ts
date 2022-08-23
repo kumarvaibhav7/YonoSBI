@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, DoCheck, ElementRef, Inject, OnInit, Renderer2 } from '@angular/core';
+
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -19,7 +19,7 @@ export class BranchchangeComponent implements OnInit,DoCheck {
   branches: any;
   disabledFlag : Boolean = false
 
-  constructor(private modalservice:NgbModal, private renderer: Renderer2, private element: ElementRef, @Inject(DOCUMENT) private document: Document,private formbuilder: FormBuilder, public route: ActivatedRoute, private dataservice: DataserviceService, private router : Router) {
+  constructor(private modalservice:NgbModal,private formbuilder: FormBuilder, public route: ActivatedRoute, private dataservice: DataserviceService, private router : Router) {
     this.dataservice.getactiveuserdetails(this.route.snapshot.pathFromRoot[1].url[0].path).subscribe(data => {
       this.adata = data;
       console.log(this.adata)
@@ -50,15 +50,6 @@ export class BranchchangeComponent implements OnInit,DoCheck {
     this.branchform = this.formbuilder.group({
       bid: ["",[Validators.required]]
     })
-  }
-
-  ngAfterViewInit() {
-    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'height', 'auto !important');
-    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'overflow-y', 'hidden');
-  }
-
-  ngOnDestroy() {
-    this.renderer.removeStyle(this.document.body, 'overflow-y');
   }
 
   changebranch(submitModal:any) {

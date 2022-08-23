@@ -1,29 +1,29 @@
 .example-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-  }
-  
-  .example-header {
-    min-height: 64px;
-    padding: 8px 24px 0;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  .mat-table {
-    overflow: auto;
-    max-height: 95%;
-  }
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 95%;
+}
 
 html {
-    height: 90%;
-    background: linear-gradient(90deg, #a91b49, 40%, #6b0f64) no-repeat;
-    position: relative;
-    color: white;
+  height: 90%;
+  background: linear-gradient(90deg, #a91b49, 40%, #6b0f64) no-repeat;
+  position: relative;
+  color: white;
 }
 
 .mat-header-cell {
@@ -31,21 +31,25 @@ html {
   font-size: 16px;
   margin-left: 20px;
 }
+
 mat-table {
   width: 100%;
 }
 
 
-mat-header-cell, mat-cell {
+mat-header-cell,
+mat-cell {
   justify-content: center;
 }
 
 
-::ng-deep .mat-form-field-label, ::ng-deep .mat-form-field-empty {
+::ng-deep .mat-form-field-label,
+::ng-deep .mat-form-field-empty {
   color: white !important;
- }
+}
 
-::ng-deep .mat-form-field-underline, ::ng-deep .mat-form-field-ripple {
+::ng-deep .mat-form-field-underline,
+::ng-deep .mat-form-field-ripple {
   background-color: white !important;
   color: white !important
 }

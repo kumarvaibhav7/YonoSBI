@@ -1,23 +1,31 @@
 <html>
-    <div class="container my-5">
-        <div class="row">
-            <div class="col">
-                <h2 style="font-size: 2.3rem ;" class="my-4">Request Services</h2>
-                <h6 class="my-3">You can avail the below services:</h6>
-            </div>
-            <div class="col">
-                <button type="submit" style="width: 100%; border-left: 1px solid #f2f2f2; border-right: 1px solid #f2f2f2; border-radius: 25px ;" [routerLink]="['/'+route.snapshot.pathFromRoot[1].url[0].path+'/home/credit']" class="bt">Apply for Credit card</button><br><br>
-                <button type="submit" style="width: 100%; border-left: 1px solid #f2f2f2; border-right: 1px solid #f2f2f2; border-radius: 25px ;" [routerLink]="['/'+route.snapshot.pathFromRoot[1].url[0].path+'/home/branchchange']" class="bt">Change your home branch</button>
-            </div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col">
+            <h2 style="font-size: 2.3rem ;" class="my-4">Request Services</h2>
+            <h6 class="my-3">You can avail the below services:</h6>
         </div>
-        <br><br>
-        <h5 style="color: white;">Terms And Condition</h5>
-        <ul>
-            <li>Information on the site: The information provided to the User through the Internet Banking is updated continuously. </li>
-            <li>Apllication id Credit Card is applicable in only certain scenario and based on the availability</li>
-            <li>Any Transaction made by you cannot be reverted</li>
-            <li>You are liable to your own money</li>
-            <li>Data is not shared to 3rd party services</li>
-        </ul>
+        <div class="col">
+            <button type="submit"
+                style="width: 100%; border-left: 1px solid #f2f2f2; border-right: 1px solid #f2f2f2; border-radius: 25px ;"
+                [routerLink]="['/'+route.snapshot.pathFromRoot[1].url[0].path+'/home/credit']" class="bt">Apply for
+                Credit card</button><br><br>
+            <button type="submit"
+                style="width: 100%; border-left: 1px solid #f2f2f2; border-right: 1px solid #f2f2f2; border-radius: 25px ;"
+                [routerLink]="['/'+route.snapshot.pathFromRoot[1].url[0].path+'/home/branchchange']" class="bt">Change
+                your home branch</button>
+        </div>
     </div>
+    <br><br>
+    <h5 style="color: white;">Terms And Condition</h5>
+    <ul>
+        <li>Information on the site: The information provided to the User through the Internet Banking is updated
+            continuously. </li>
+        <li>Apllication id Credit Card is applicable in only certain scenario and based on the availability</li>
+        <li>Any Transaction made by you cannot be reverted</li>
+        <li>You are liable to your own money</li>
+        <li>Data is not shared to 3rd party services</li>
+    </ul>
+</div>
+
 </html>

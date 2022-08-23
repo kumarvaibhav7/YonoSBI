@@ -9,15 +9,15 @@ import { DataserviceService } from '../../dataservice.service';
 })
 export class ProfileComponent implements OnInit {
 
-  adata:any;
-  bdata:any;
-  constructor(private dataservice:DataserviceService, private route:ActivatedRoute) { 
-    this.dataservice.getactiveuserdetails(this.route.snapshot.pathFromRoot[1].url[0].path).subscribe(data=>{
+  adata: any;
+  bdata: any;
+  constructor(private dataservice: DataserviceService, private route: ActivatedRoute) {
+    this.dataservice.getactiveuserdetails(this.route.snapshot.pathFromRoot[1].url[0].path).subscribe(data => {
       console.log(data);
-      this.dataservice.getbranch(data.bid).subscribe(data1=>{
-        this.bdata=data1;
+      this.dataservice.getbranch(data.bid).subscribe(data1 => {
+        this.bdata = data1;
       })
-      this.adata=data;
+      this.adata = data;
     })
   }
 

@@ -11,7 +11,7 @@
     </ng-template>
 </ngb-carousel>
 <div class="card" style="position: absolute; top: 18%; left:70%;">
-    <div class="card-header text-xl" style="padding-top: 20px ; padding-bottom: 10px ; padding-left: 20px; "  >
+    <div class="card-header text-xl" style="padding-top: 20px ; padding-bottom: 10px ; padding-left: 20px; ">
         Welcome to<br>
         <img width="160" height="40" src="assets/sbi_intouch_logo.svg" alt="Yono Logo">
     </div>
@@ -29,7 +29,9 @@
                     <span>Password</span>
                 </div>
                 <div>
-                    <input style="width:200px; height: 45px; position: relative; top: -14px; background-color: #ac5295; border: none; border-radius: 5px; color: white;" [disabled]="loginform.invalid"  (click)="verify(invalid)" type="submit">
+                    <input
+                        style="width:200px; height: 45px; position: relative; top: -14px; background-color: #ac5295; border: none; border-radius: 5px; color: white;"
+                        [disabled]="loginform.invalid" (click)="verify(invalid)" type="submit">
                 </div>
             </div>
         </div>
@@ -48,9 +50,7 @@
     </div>
     <div class="modal-body text-center">
         <span style="font-weight: 500; letter-spacing: 2px;">Invalid Username or Password!</span>
-        <img height="200px" width="400px"
-            src="../../../assets/incorrect_pass.gif"
-            alt="Invalid Credentials">
+        <img height="200px" width="400px" src="../../../assets/incorrect_pass.gif" alt="Invalid Credentials">
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-success" (click)="modal.close('Close click')">Retry</button>

@@ -5,13 +5,14 @@ h1 {
 }
 
 h2,
-h3,h6 {
+h3,
+h6 {
     color: #fff;
 }
 
 body {
     margin: 2em;
-    
+
 }
 
 .bt {
@@ -29,7 +30,7 @@ body {
     color: #fff;
 }
 
-.bt::after{
+.bt::after {
     content: "";
     margin-top: 1em;
     background-color: white;
@@ -39,19 +40,20 @@ body {
     transition: 0.7s ease-in-out;
 }
 
-.bt:hover::after{
+.bt:hover::after {
     content: "";
     height: 1px;
     width: 100%;
     background-color: white;
     display: block;
 }
-html{
+
+html {
     background: linear-gradient(90deg, #a91b49, 40%, #6b0f64) no-repeat;
     padding-top: 10px;
 }
 
-li{
+li {
     color: white;
     margin-bottom: 3px;
     font-size: 12px;

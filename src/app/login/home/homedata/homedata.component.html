@@ -22,23 +22,24 @@
     </div>
 </div>
 <div style="padding-top:50px">
-<div class="card" style="position: relative; margin-top: 0%; width: 40%; left: 55%; ">
-    <div class="card-body">
-        <table class="text-xl-center" style="line-height: 1.5; font-size: larger; margin: 10px auto;">
-            <tr>
-                <td>Available Balance:</td>
-            </tr>
-            <tr>
-                <td style="font-size: larger; padding: 10px" *ngIf="isbalhidden">*************</td>
-                <td style="font-size: larger; padding: 10px" *ngIf="!isbalhidden">{{adata.balance|currency:"INR"}}</td>
-            </tr>
-            <tr>
-                <div class="btn btn-primary" *ngIf="isbalhidden" (click)="showbalance()">Show Balance</div>
-                <div class="btn btn-primary" *ngIf="!isbalhidden" (click)="showbalance()">Hide Balance</div>
-            </tr>
-        </table>
+    <div class="card" style="position: relative; margin-top: 0%; width: 40%; left: 55%; ">
+        <div class="card-body">
+            <table class="text-xl-center" style="line-height: 1.5; font-size: larger; margin: 10px auto;">
+                <tr>
+                    <td>Available Balance:</td>
+                </tr>
+                <tr>
+                    <td style="font-size: larger; padding: 10px" *ngIf="isbalhidden">*************</td>
+                    <td style="font-size: larger; padding: 10px" *ngIf="!isbalhidden">{{adata.balance|currency:"INR"}}
+                    </td>
+                </tr>
+                <tr>
+                    <div class="btn btn-primary" *ngIf="isbalhidden" (click)="showbalance()">Show Balance</div>
+                    <div class="btn btn-primary" *ngIf="!isbalhidden" (click)="showbalance()">Hide Balance</div>
+                </tr>
+            </table>
+        </div>
     </div>
-</div>
 </div>
 <div style="position: relative; margin-top:5%">
     <table style="margin: 0 17%;">

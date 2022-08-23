@@ -1,80 +1,79 @@
-.offcan{
-    width: 100%; 
-    padding: 20px 10px; 
-    margin: 10px 0; 
-    background-color: #f2f2f2;
-    font-size: 1.3rem;
-    font-weight: 500;
-    letter-spacing: 3px;
+.offcan {
+  width: 100%;
+  padding: 20px 10px;
+  margin: 10px 0;
+  background-color: #f2f2f2;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 3px;
 }
 
-h4{
-    margin-top: 10px; 
-    font-size: 1.3rem;
-    letter-spacing: 3px;
+h4 {
+  margin-top: 10px;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
 }
 
 .btnn {
-    /* height: 60px; */
-    padding: 15px 10px; 
-    margin-bottom: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.8s ease;
-    position: relative;
-    border: none;
-    border-radius: 16px;
-    /* font-size: 1.3rem; */
-    margin: 10px 0;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  }
-  
-  .btnn::before,
-  .btnn::after {
-    position: absolute;
-    display: block;
-    content: "";
-    width: 100%;
-    height: 100%;
-  }
-  
-  .btnn5 {
-    overflow: hidden;
-    transition: all 300ms ease;
-  }
-  
-  .btnn5 h4 {
-    color: #111;
-  }
-  
-  .btnn5:after {
-    width: 300%;
-    height: 300%;
-    left: -300%;
-    transform: rotate(45deg);
-    background-color: #82327b;
-    transition: all 300ms ease;
-  }
-  
-  .btnn5:hover h4 {
-    color: #fff;
-    z-index: 10;
-    font-weight: 600;
-  }
-  
-  .btnn5:hover::after {
-    left: -100%;
-  }
-  
-  .btnn5:hover {
-    border: 2px solid #82327b;
-  }
-  
-  .dark-modal
-  {
-    background-color: #272822;
-    color: white;
-  }
+  /* height: 60px; */
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.8s ease;
+  position: relative;
+  border: none;
+  border-radius: 16px;
+  /* font-size: 1.3rem; */
+  margin: 10px 0;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.btnn::before,
+.btnn::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  height: 100%;
+}
+
+.btnn5 {
+  overflow: hidden;
+  transition: all 300ms ease;
+}
+
+.btnn5 h4 {
+  color: #111;
+}
+
+.btnn5:after {
+  width: 300%;
+  height: 300%;
+  left: -300%;
+  transform: rotate(45deg);
+  background-color: #82327b;
+  transition: all 300ms ease;
+}
+
+.btnn5:hover h4 {
+  color: #fff;
+  z-index: 10;
+  font-weight: 600;
+}
+
+.btnn5:hover::after {
+  left: -100%;
+}
+
+.btnn5:hover {
+  border: 2px solid #82327b;
+}
+
+.dark-modal {
+  background-color: #272822;
+  color: white;
+}

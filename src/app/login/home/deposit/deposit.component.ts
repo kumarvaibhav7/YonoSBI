@@ -18,10 +18,10 @@ export class DepositComponent implements OnInit, DoCheck {
   rdata: any;
   deposit: number = 10;
   Toacnumber: number = null;
-  isaccountsame:boolean=false;
+  isaccountsame: boolean = false;
   isinvalidamount: boolean = false;
   iszero: boolean = true;
-  istransactioncomplete:boolean=false;
+  istransactioncomplete: boolean = false;
   ischar: boolean = false;
   isrecieverinvalid: boolean = true;
   tranid: string = "";
@@ -52,17 +52,17 @@ export class DepositComponent implements OnInit, DoCheck {
     else {
       this.iszero = false;
     }
-    if (!/\d/.test(this.deposit.toString()) && this.deposit.toString()!="") {
+    if (!/\d/.test(this.deposit.toString()) && this.deposit.toString() != "") {
       this.ischar = true;
     }
     else {
       this.ischar = false;
     }
-    if(this.Toacnumber==this.adata.acnumber){
-      this.isaccountsame=true;
+    if (this.Toacnumber == this.adata.acnumber) {
+      this.isaccountsame = true;
     }
-    else{
-      this.isaccountsame=false;
+    else {
+      this.isaccountsame = false;
     }
   }
 
@@ -96,7 +96,7 @@ export class DepositComponent implements OnInit, DoCheck {
 
   }
 
-  findreciever(accountModel:any) {
+  findreciever(accountModel: any) {
     this.dataservice.getactiveuserdetails(this.Toacnumber).subscribe(data => {
       this.rdata = data;
       if (data == undefined) {
@@ -120,10 +120,10 @@ export class DepositComponent implements OnInit, DoCheck {
       this.dataservice.sendertransaction(this.createTransaction(this.tranid, "Debit")).subscribe((data) => { });
       this.dataservice.recievertransaction(this.createTransaction(this.tranid, "Credit")).subscribe((data) => { });
       this.dataservice.modifybalance(this.Toacnumber, this.adata).subscribe((data) => { });
-      this.istransactioncomplete=true;
-      document.getElementById("status").innerHTML="Transaction Complete";
+      this.istransactioncomplete = true;
+      document.getElementById("status").innerHTML = "Transaction Complete";
     }, 5000);
-    
+
   }
 
 }

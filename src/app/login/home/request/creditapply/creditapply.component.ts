@@ -1,5 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import { Component, DoCheck, ElementRef, Inject, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
+
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, ValidationErrors, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -12,15 +12,7 @@ import { DataserviceService } from 'src/app/login/dataservice.service';
 })
 export class CreditapplyComponent implements OnInit {
 
-  constructor(private modalservice: NgbModal, private formbuilder: FormBuilder, private dataService: DataserviceService, private route: ActivatedRoute, private renderer: Renderer2, private element: ElementRef,
-    @Inject(DOCUMENT) private document: Document, private router: Router) { }
-  
-  // ngDoCheck(): void {
-  //   if (!/\d/.test(this.credform.monthlyincome.toString()) && this.credform.monthlyincome.toString()!="") {
-  //     this.ischar = true;
-  //     console.log(this.ischar)
-  //   }
-  // }
+  constructor(private modalservice: NgbModal, private formbuilder: FormBuilder, private dataService: DataserviceService, private route: ActivatedRoute, private router: Router) { }
 
   credform: any;
   finalUploadObject: any;
@@ -28,7 +20,7 @@ export class CreditapplyComponent implements OnInit {
   totalReq: number;
   on: boolean = false;
   reqdetails: any;
-  ischar:any = false
+  ischar: any = false
 
   getData(submitModal: any) {
     this.finalUploadObject = {
@@ -48,10 +40,10 @@ export class CreditapplyComponent implements OnInit {
 
   ngOnInit(): void {
     this.credform = this.formbuilder.group({
-      pan: ["",[Validators.required]],
-      income: ["",[Validators.required, this.numbervalidator]],
-      employer: ["",[Validators.required]],
-      ctype: ["",[Validators.required]]
+      pan: ["", [Validators.required]],
+      income: ["", [Validators.required, this.numbervalidator]],
+      employer: ["", [Validators.required]],
+      ctype: ["", [Validators.required]]
     })
     this.dataService.getactiveuserdetails(this.route.snapshot.pathFromRoot[1].url[0].path).subscribe(respdata => {
       console.log(respdata)
@@ -70,39 +62,33 @@ export class CreditapplyComponent implements OnInit {
     })
   }
 
-  numbervalidator(control: AbstractControl): ValidationErrors | null{
-    if(/\d/.test(control.value.toString()) && control.value.toString()!="" && control.value > 0 ){
+  numbervalidator(control: AbstractControl): ValidationErrors | null {
+    if (/\d/.test(control.value.toString()) && control.value.toString() != "" && control.value > 0) {
       return null;
     }
-    else{
+    else {
       return { invalid: true };
     }
-    
+
   }
 
   ngAfterViewInit() {
-    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'height', 'auto !important');
-    this.renderer.setStyle(this.element.nativeElement.offsetParent, 'overflow-y', 'hidden');
-
     this.dataService.getReqCount(this.route.snapshot.pathFromRoot[1].url[0].path).subscribe(data => {
       if (data >= 1) {
         this.modalservice.open(this.submittedModal, { centered: true });
       }
     })
   }
-  ngOnDestroy() {
-    this.renderer.removeStyle(this.document.body, 'overflow-y');
-  }
 
   gotorequest() {
     this.router.navigate([this.route.snapshot.pathFromRoot[1].url[0].path + '/home/request'])
   }
 
-  isinvalid(){
-    if(this.on ==true && this.credform.invalid==false){
+  isinvalid() {
+    if (this.on == true && this.credform.invalid == false) {
       return false;
     }
-    console.log(this.on,this.credform.invalid);
+    console.log(this.on, this.credform.invalid);
     return true;
   }
 }
