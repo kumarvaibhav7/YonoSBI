@@ -46,6 +46,12 @@
                         </td>
                         <td>
                             <input class="form-control" required type="text" formControlName="income">
+                            <!-- <span *ngIf="ischar" class="text-danger">Amount should not be a character.</span> -->
+                            <div class="text-danger" style="margin-top: 5px;"
+                            *ngIf = "credform.get('income')?.invalid"
+                            >
+                            Valid Data Needed(No character , more than 0)
+                            </div>
                         </td>
                     </tr>
                     <tr>
