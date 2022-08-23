@@ -22,7 +22,7 @@
         <mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="tranid">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Transaction ID</mat-header-cell>
-                <mat-cell *matCellDef="let row">{{row.tranid}}</mat-cell>
+                <mat-cell *matCellDef="let row">{{row.tranid | uppercase}}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="dateoftran">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Date of Transaction</mat-header-cell>
