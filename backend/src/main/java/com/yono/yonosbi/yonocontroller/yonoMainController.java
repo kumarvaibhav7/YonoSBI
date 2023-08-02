@@ -44,6 +44,11 @@ public class yonoMainController {
 	trandetailsRepo trandetailsrepo;
 	@Autowired
 	creditapplyRepo creditapplyrepo;
+
+  @GetMapping("/healthcheck")
+	    public String healthcheck(){
+	        return "ok"
+	    }
 	
 	@GetMapping("/getyonobranches")
 	    public List<branch> getallBranches(){
